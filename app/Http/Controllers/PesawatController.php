@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Mpesawat;
 //use App\Models\Indonesia;
 use Indonesia;
+use App\Classes\StringClass;
 
 class PesawatController extends Controller
 {
@@ -84,10 +85,41 @@ class PesawatController extends Controller
      */
     public function update(Request $request, $id)
     {
+		$strings                = new StringClass();
+        $gallery_title          = $strings->str2alias($request->name);
+        
+        $b_title            	= strtolower($gallery_title);
+       
+        if($request->hasFile('b_image')) {
+		$strings                        = new StringClass();
+        $gallery_title                  = $strings->str2alias($request->name);
+
+        $now                            = \Carbon\Carbon::now();
+		$year                           = date('Y', strtotime($now));
+		$month                          = date('m', strtotime($now));
+        $days                           = date('d', strtotime($now));
+        
+        $bs                             = $request->file('b_image')->getClientOriginalExtension();
+        $nombreCarpeta                  = preg_replace('/\s+/', '.', $year . "/" . $month . "/" . $days);
+        $fileimg                        = $gallery_title . '.' .$bs;
+        $b_image                        = 'image/pesawat/'.$nombreCarpeta .'/' .$fileimg;
+        $path                           = base_path() .'/public/image/pesawat/'.$nombreCarpeta;
+		}else{
+            $b_image                	= $request->gallery_file;
+        }
+		
         $data				= Mpesawat::find($id);
 		$data->name			= $request->name;
 		$data->seat_number	= $request->seat;
 		$data->status		= 1;
+		$data->image		= $b_image;
+		
+		if($request->hasFile('b_image')) {
+            $imageName = $strings->str2alias($data->name);
+            $nmImg      = strtolower($imageName) . '.' . 
+            $request->file('b_image')->getClientOriginalExtension();
+            $request->file('b_image')->move($path, $nmImg);
+        }
 		
 		$data->save();
 		

@@ -20,3 +20,12 @@
 			@endif
 	</div>
 </div>
+<div class="form-group{{ $errors->has('b_image') ? ' has-error' : '' }}">
+		<label for="b_image">Banner Image</label>
+		<input type="file" name="b_image" id="uploadFile">
+			@if ($errors->has('b_image'))
+				<span class="help-block">
+					<strong>{{ $errors->first('b_image') }}</strong>
+				</span>
+			@endif
+	</div>

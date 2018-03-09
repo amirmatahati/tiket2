@@ -9,13 +9,15 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+*/
 
 Auth::routes();
+Route::get('/', 'homes\HomeController@index')->name('home');
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin', 'AdminHomeController@index')->name('admin');
 
@@ -28,3 +30,19 @@ Route::get('delete-pesawat/{id}', 'PesawatController@destroy')->name('delete_pes
 
 Route::get('list-route', 'RouteController@index')->name('routelist');
 Route::post('save-route','RouteController@store')->name('routesave');
+
+Route::get('travel-list', 'TourController@index')->name('travellist');
+Route::post('travel-insert', 'TourController@store')->name('inserttravel');
+Route::get('travel-edit/{id}', 'TourController@edit')->name('edittravel');
+Route::post('travel-update/{id}', 'TourController@update')->name('updatetravel');
+
+/* maskapai */
+Route::get('maskapai-list', 'MaskapaiController@index')->name('maskapailist');
+Route::post('save-maskapai','MaskapaiController@store')->name('insertmaskapai');
+
+/*halaman depan */
+Route::get('get-banner/{id}','homes\HomeController@GetAjaxBanner')->name('getbanner');
+Route::post('submit-booking-fight','homes\BookingController@store')->name('submitfight');
+
+Route::get('/booking', 'homes\BookingController@index')->name('home');
+Route::post('booking-search', 'homes\MaskapaiController@searchFlight')->name('search_flight');

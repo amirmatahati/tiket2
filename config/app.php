@@ -161,8 +161,8 @@ return [
         App\Providers\RouteServiceProvider::class,
 		Collective\Html\HtmlServiceProvider::class,
 		AzisHapidin\IndoRegion\IndoRegionServiceProvider::class,
-		rizalafani\rajaongkirlaravel\RajaOngkirServiceProvider::class,
 		Laravolt\Indonesia\ServiceProvider::class,
+	    Torann\LaravelMetaTags\MetaTagsServiceProvider::class,
 
     ],
 
@@ -214,8 +214,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 		'Form' => Collective\Html\FormFacade::class,
 		'Html' => Collective\Html\HtmlFacade::class,
-		'RajaOngkir' => rizalafani\rajaongkirlaravel\RajaOngkirFacade::class,
 		'Indonesia' => Laravolt\Indonesia\Facade::class,
+		'MetaTag'   => Torann\LaravelMetaTags\Facades\MetaTag::class,
 
     ],
 

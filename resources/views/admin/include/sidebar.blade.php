@@ -36,9 +36,13 @@
 					<br />
 					<br />
 					<li>
-						<a href=""><i class="fa fa-database" aria-hidden="true"></i> Database Company</a>
+						<a href="{{ url('/list-pesawat')}}"><i class="fa fa-database" aria-hidden="true"></i> Pesawat</a>
+					</li>
+					<li>
+						<a href="{{ url('/list-route')}}"><i class="fa fa-database" aria-hidden="true"></i> Rute</a>
 					</li>
 					<?php if (Auth::user()->category_user == 1){ ;?>
+					<!--
 					<li>
 						<a><i class="fa fa fa-street-view" aria-hidden="true"></i> Marketing<span class="fa fa-chevron-down"></span></a>
 						<ul class="nav child_menu">
@@ -55,6 +59,7 @@
 							<li><a href="#">Commission</a></li>
 						</ul>
 					</li>
+					-->
 					<?php } ?>
 
                 </ul>

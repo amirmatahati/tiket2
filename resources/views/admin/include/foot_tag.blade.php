@@ -9,11 +9,12 @@
         <script src="{{ asset('assets/bower_components/typeahead.js/dist/typeahead.bundle.min.js') }}"></script>
         <script src="{{ asset('js/bootstrapValidator.min.js') }}"></script>
         <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
 
 @isset($scripts)
   @include($scripts)
 @endisset
-
+<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 		
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
 		 <!-- bootstrap-wysiwyg -->
@@ -24,7 +25,12 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
-    <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
+    <!--<script src="{{ asset('js/jquery-ui.min.js') }}"></script>-->
   
+  <script type="text/javascript">  
+
+     CKEDITOR.replace( 'technig' );  
+
+  </script>
 
 

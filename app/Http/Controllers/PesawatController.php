@@ -44,12 +44,40 @@ class PesawatController extends Controller
      */
     public function store(Request $request)
     {
+		$strings                = new StringClass();
+        $gallery_title          = $strings->str2alias($request->name);
+        
+        $b_title            	= strtolower($gallery_title);
+		
+		$strings                        = new StringClass();
+        $gallery_title                  = $strings->str2alias($request->name);
+
+        $now                            = \Carbon\Carbon::now();
+		$year                           = date('Y', strtotime($now));
+		$month                          = date('m', strtotime($now));
+        $days                           = date('d', strtotime($now));
+        
+        $bs                             = $request->file('b_image')->getClientOriginalExtension();
+        $nombreCarpeta                  = preg_replace('/\s+/', '.', $year . "/" . $month . "/" . $days);
+        $fileimg                        = $gallery_title . '.' .$bs;
+        $b_image                        = 'image/pesawat/'.$nombreCarpeta .'/' .$fileimg;
+        $path                           = base_path() .'/public/image/pesawat/'.$nombreCarpeta;
+		
+		
         $query				= new Mpesawat;
 		$query->name		= $request->name;
 		$query->seat_number	= $request->seat;
 		$query->status		= 1;
+		$query->image		= $b_image;
 		
 		$query->save();
+		
+		
+		$imageName = $strings->str2alias($query->name);
+        $nmImg      = strtolower($imageName) . '.' . 
+        $request->file('b_image')->getClientOriginalExtension();
+        $request->file('b_image')->move($path, $nmImg);
+		
 		return response()->json($query);
     }
 

@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Indonesia extends Model
+class Indonesias extends Model
 {
-    protected $table	= 'cities';
+    protected $table	= 'provinces';
 	protected $fillable	= ['id','name'];
 }

@@ -1,3 +1,7 @@
+<div class="well">
+{{ ucwords($kemana)}} / {{ ucwords($tiba)}}<br />
+	{{ Carbon\Carbon::parse($date_on)->format('D M Y') }} | {{ $seat_stock }} Dewasa
+</div>
 <div class="table-responsive">
 	<table class="table table-striped">
 		<thead>
@@ -12,9 +16,6 @@
     		</tr>
     	</thead>
     	<tbody>
-		@if($query === 0)
-			No data found.
-		@else
     	@foreach($query as $key => $b)
 			<tr>
 				<td>{{ $query->firstItem() + $key }}</td>
@@ -26,17 +27,12 @@
 				<td><button class="btn btn-sm btn-info" type="submit">Booking</button></td>
     		</tr>
     	@endforeach
-		@endif
     	</tbody>
     </table>
  </div>
-@if($query === 0)
-	No data found.
-@else
 	@if($query->count() === 0)
 		<div class="alert alert-danger">
 		No data found.
 	</div>
 	@endif
 {!! $query->render() !!}
-@endif

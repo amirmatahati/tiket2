@@ -16,7 +16,11 @@
 				};
 			*/
 	$(document).ready(function() {
-	$( "#datepicker,#datepicker1" ).datepicker();
+		$('#datepicker, #datepicker1').datepicker({
+			dateFormat: 'yy-mm-dd'
+			});
+//	$( "#datepicker,#datepicker1" ).datepicker();
+
 });
 								
 			$().UItoTop({ easingType: 'easeOutQuart' });

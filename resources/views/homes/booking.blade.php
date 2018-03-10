@@ -23,7 +23,7 @@
 								<h2>Search for flights</h2>
 								
 								{{ method_field('post') }}
-								{!! Form::open([ 'class' => 'form-horizontal','method' => 'POST','files' => true, 'id' => 'flight_form']) !!}
+								{!! Form::open(['method' => 'POST', 'class' => 'form-horizontal', 'id' => 'flight_form'])  !!}
 									{{ csrf_field() }}
 									
 									<div class="fromtop">
@@ -296,7 +296,7 @@
 											<h5>Check Out &amp; Time *</h5>
 												
 												<div class="agileits_w3layouts_main_gridl">
-													<input class="date" id="datepicker1" name="Text" type="text" value="mm/dd/yyyy" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '08/13/2016';}" required="">
+													<input class="date" id="datepicker1" name="Text" type="text" value="yyyy-mm-dd" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '2016-01-01';}" required="">
 												</div>
 												<div class="agileits_w3layouts_main_gridr">
 													<input type="time" name="Time" placeholder=" " required="">

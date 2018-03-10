@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Models\Mmaskapai;
+use App\Models\Indonesias;
 use Indonesia;
 
 class MaskapaiController extends Controller
@@ -16,24 +17,32 @@ class MaskapaiController extends Controller
 		$to					= $request->to;
 		$seat_stock			= $request->seat_stock;
 		$date_on			= $request->date_on;
+		$seat_stock			= $request->seat_stock;
 		
 		$query11			= Mmaskapai::where('go_away', 'LIKE', '%' . $form_ts . '%')->get();
-		if($query11->count() > 0){
-			$query1				= $query11->first()->go_away;
-		}else{
-			$query1			= 0;
-		}
-		$query2				= Mmaskapai::where('tujuan', 'LIKE', '%' . $to . '%')->first()->tujuan;
-		//$query3				= Mmaskapai::where('date_go', 'LIKE', '%' . $date_on . '%')->first()->date_go;
-		//return response()->json($query);
-		if($query1 > 0){
-			$query			= Mmaskapai::where('go_away', 'LIKE', '%' . $query1 . '%')
-							->orWhere('tujuan', 'LIKE', '%' . $query2 . '%')
-							->orWhere('date_go', 'LIKE', '%' . $date_on . '%')
+		$query122				= Mmaskapai::where('tujuan', 'LIKE', '%' . $to . '%')->get();
+		$query2				= Mmaskapai::where('date_go', 'LIKE', '%' . $date_on . '%')->get();
+		
+		$query1				= Mmaskapai::where('go_away', $form_ts)
+							->where('tujuan', $to)->get();
+		
+		if($query1->count() > 0){
+			$query			= Mmaskapai::where('go_away', $form_ts)
+							->where('tujuan', $to)
 							->paginate(10);
+
+			$kemana 		= Indonesias::where('id', $form_ts)->first()->name;
+			$tiba	 		= Indonesias::where('id', $to)->first()->name;
 		}else{
-			$query			= 0;
+			$query			= Mmaskapai::where('date_go', 'LIKE', '%' . $date_on . '%')
+							->paginate(10);
+//			$kem			= Mmaskapai::where('go_away', $form_ts)->first()->go_away;
+//			$kem1			= Mmaskapai::where('tujuan', $to)->first()->tujuan;
+
+			$kemana 		= Indonesias::where('id', $form_ts)->first()->name;
+			$tiba	 		= Indonesias::where('id', $to)->first()->name;
 		}
-		return view('homes.table_search_flight', compact('query'));
+		
+		return view('homes.table_search_flight', compact('query','kemana','tiba','date_on','seat_stock'));
 	}
 }

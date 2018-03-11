@@ -436,7 +436,7 @@
 									</div>		
 							</div>
 						</div>
-					</div>	
+					</div>
 					<div class="show_hasil">
 						
 					</div>
@@ -478,4 +478,7 @@ $("form#flight_form").submit(function(event){
 		return false;
 });
 </script>
+
+
+
 @endsection

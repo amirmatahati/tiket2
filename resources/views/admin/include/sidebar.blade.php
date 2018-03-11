@@ -41,6 +41,9 @@
 					<li>
 						<a href="{{ url('/list-route')}}"><i class="fa fa-database" aria-hidden="true"></i> Rute</a>
 					</li>
+					<li>
+						<a href="{{ url('/maskapai-list')}}"><i class="fa fa-database" aria-hidden="true"></i> Maskapai</a>
+					</li>
 					<?php if (Auth::user()->category_user == 1){ ;?>
 					<!--
 					<li>

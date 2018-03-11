@@ -1,3 +1,4 @@
+
 <div class="well">
 {{ ucwords($kemana)}} / {{ ucwords($tiba)}}<br />
 	{{ Carbon\Carbon::parse($date_on)->format('D M Y') }} | {{ $seat_stock }} Dewasa
@@ -24,7 +25,15 @@
 				<td>{{ $b->transit }}<br />{{ ucwords($b->Provincies2->name) }}</td>
 				<td>{{ $b->durasi }} <br /> Langsung</td>
 				<td><h5 style="color: #ea5b1d;">Rp. {{ number_format($b->price, 2) }}</h5></td>
-				<td><button class="btn btn-sm btn-info" type="submit">Booking</button></td>
+				<td>
+					{{ csrf_field() }}
+					{{ method_field('post') }}
+					{!! Form::open(['method' => 'POST','route' => ['detailflight'], 'class' => 'form-horizontal'])  !!}
+						<input type="hidden" name="id" value="{{ $b->id }}">
+						<input type="hidden" name="seat_stock" value="{{ $seat_stock }}">
+						<button type="submit" class="btn btn-info">Booking</button>
+					{!! Form::close() !!}
+				</td>
     		</tr>
     	@endforeach
     	</tbody>
@@ -36,3 +45,4 @@
 	</div>
 	@endif
 {!! $query->render() !!}
+

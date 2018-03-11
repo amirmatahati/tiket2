@@ -208,14 +208,7 @@ $(document).ready(function() {
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
 				</div>
 					<div class="modal-body">
-					<div id="img-travel"></div>
-						<img src="" alt=" " class="img-responsive" />
-						<p id="travel_text"></p>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-warning" data-dismiss="modal">
-								<span class='glyphicon glyphicon-remove'></span> Close
-							</button>
-						</div>
+						
 					</div>
 			</div>
 		</div>

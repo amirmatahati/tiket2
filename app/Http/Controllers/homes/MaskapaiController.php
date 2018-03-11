@@ -45,4 +45,12 @@ class MaskapaiController extends Controller
 		
 		return view('homes.table_search_flight', compact('query','kemana','tiba','date_on','seat_stock'));
 	}
+	public function DetailFlight(Request $request)
+	{
+		$id 			= $request->id;
+		$seat_stock		= $request->seat_stock;
+		$data			= Mmaskapai::find($id);
+		
+		return view('homes.detail_flight', compact('data','seat_stock'));
+	}
 }

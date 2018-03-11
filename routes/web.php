@@ -46,3 +46,5 @@ Route::post('submit-booking-fight','homes\BookingController@store')->name('submi
 
 Route::get('/booking', 'homes\BookingController@index')->name('home');
 Route::post('booking-search', 'homes\MaskapaiController@searchFlight')->name('search_flight');
+
+Route::post('get-detail-flight','homes\MaskapaiController@DetailFlight')->name('detailflight');

@@ -56,10 +56,11 @@ class BookingController extends Controller
 		$flight->form			= $request->form;
 		$flight->to				= $request->to;
 		$flight->adults			= $request->adults;
-		$flight->children		= $request->children;
-		$flight->travel_class	= $request->travel_class;
-		$flight->date_on		= $request->dates;
-		$flight->journey_type	= $request->journey_type;
+		$flight->children		= 0;
+		$flight->travel_class	= 0;
+		$flight->date_on		= $request->date_on;
+		$flight->journey_type	= 0;
+		$flight->phone			= $request->phone;
 		$flight->save();
 		
 		return response()->json($flight);

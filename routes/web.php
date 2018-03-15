@@ -40,6 +40,12 @@ Route::post('travel-update/{id}', 'TourController@update')->name('updatetravel')
 Route::get('maskapai-list', 'MaskapaiController@index')->name('maskapailist');
 Route::post('save-maskapai','MaskapaiController@store')->name('insertmaskapai');
 
+Route::get('gallery-list', 'GallerisController@index')->name('listgalleries');
+Route::post('gallery-save', 'GallerisController@store')->name('savegallery');
+Route::get('gallery-edit/{id}', 'GallerisController@edit')->name('editgalleries');
+Route::get('get-category-galleries/{id}', 'GallerisController@combo_data')->name('catgalleries');
+Route::post('gallery-update/{id}', 'GallerisController@update')->name('updategallery');
+
 /*halaman depan */
 Route::get('get-banner/{id}','homes\HomeController@GetAjaxBanner')->name('getbanner');
 Route::post('submit-booking-fight','homes\BookingController@store')->name('submitfight');
@@ -48,3 +54,4 @@ Route::get('/booking', 'homes\BookingController@index')->name('home');
 Route::post('booking-search', 'homes\MaskapaiController@searchFlight')->name('search_flight');
 
 Route::post('get-detail-flight','homes\MaskapaiController@DetailFlight')->name('detailflight');
+Route::get('galleries','homes\GalleriesController@index')->name('gallerieshome');

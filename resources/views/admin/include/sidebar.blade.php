@@ -44,6 +44,9 @@
 					<li>
 						<a href="{{ url('/maskapai-list')}}"><i class="fa fa-database" aria-hidden="true"></i> Maskapai</a>
 					</li>
+					<li>
+						<a href="{{ url('/gallery-list')}}"><i class="fa fa-database" aria-hidden="true"></i> Gallery</a>
+					</li>
 					<?php if (Auth::user()->category_user == 1){ ;?>
 					<!--
 					<li>

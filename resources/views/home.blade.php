@@ -104,7 +104,7 @@
 		</div>
 		<div class="clearfix"></div>
 	</div>
-	
+<!--	
 	<div class="container">
 		<div class="wthree_head_section">
 			<h3 class="w3l_header">Tour <span>Packages</span></h3>
@@ -184,9 +184,10 @@
 				</div>
 			</div>
 			<div class="clearfix"> </div> 
-				<!--End-slider-script-->
+				
 		</div>
 	</div>	
+-->
 	
 </div>
 @include('includes/footer')

@@ -3,18 +3,17 @@
 			<div class="col-md-4 agile_footer_grid">
 				<h3>Contact Info</h3>
 				<ul class="w3_address">
-					<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>1234k Avenue, 4th block, <span>New York City.</span></li>
-					<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">info@example.com</a></li>
-					<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+1234 567 567</li>
+					<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>17111, Bekasi, <span>Jawa Barat.</span></li>
+					<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:amirrudi2610@bsi.ac.id">amirrudi2610@bsi.ac.id</a></li>
+					<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+6283876707422</li>
 				</ul>
 			</div>
 			<div class="col-md-4 agile_footer_grid">
 				<h3>About Us</h3>
-				<p>Donec purus neque, vulputate id est id, pretium semper enim. Morbi viverra 
-					congue nisi vel pulvinar posuere sapien eros, sed faucibus.</p>
+				<p>Web Developer at Tras Mediacom.</p>
 				<ul class="agileits_social_list">
-					<li><a href="#" class="w3_agile_facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-					<li><a href="#" class="agile_twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+					<li><a target="_blank" href="https://www.facebook.com/AmirMataHati" class="w3_agile_facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+					<li><a trget="_blank" href="https://twitter.com/AmirMataHati" class="agile_twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
 					<li><a href="#" class="w3_agile_dribble"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
 				</ul>
 			</div>
@@ -53,5 +52,5 @@
 		</div>
 	</div>
 	<div class="agileinfo_copyright">
-		<p>© 2018 Travel Agency. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+		<p>© 2018 Travel Agency. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a> | <a target="_blank" href="http://amirmatahati.esy.es/">Developer by AmirMataHati</a></p>
 	</div>

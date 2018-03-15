@@ -2354,7 +2354,7 @@ ul.pagination li a {
 	font-size: 14px;
 }
 table.table.table-striped,.table-bordered,.bs-docs-example {
-		display: none;
+		display: block;
 }
 }
 /*-- //typography --*/

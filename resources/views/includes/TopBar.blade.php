@@ -4,10 +4,10 @@
 							
 							<div class="col-md-6 top-middle">
 								<ul>
-									<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-									<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-									<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-									<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+									<li><a target="_blank" href="https://www.facebook.com/AmirMataHati"><i class="fa fa-facebook"></i></a></li>
+									<li><a trget="_blank" href="https://twitter.com/AmirMataHati"><i class="fa fa-twitter"></i></a></li>
+									<li><a target="_blank" href="https://plus.google.com/u/0/112364702243448725324"><i class="fa fa-google-plus"></i></a></li>
+									<li><a target="_blank" href="https://www.linkedin.com/in/amirmatahati/"><i class="fa fa-linkedin"></i></a></li>
 								</ul>
 							</div>
 							<div class="col-md-6 top-left">
@@ -40,15 +40,7 @@
 										<li class="active"><a href="{{ url('/') }}">Home</a></li>
 													<li><a href="about.html">About</a></li>
 													<li><a href="{{ url('/booking')}}">Booking</a></li>
-													<li><a href="gallery.html">Gallery</a></li>
-													<li class="dropdown">
-														<a href="#" class="dropdown-toggle" data-hover="Pages" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages <span class="caret"></span></a>
-														<ul class="dropdown-menu">
-															<li><a href="icons.html">Icons</a></li>
-															<li><a href="typography.html">Typography</a></li>
-														</ul>
-													</li>
-													<li><a href="contact.html">Contact</a></li>
+													<li><a href="{{ url('/galleries')}}">Gallery</a></li>
 												</ul>
 									
 								</nav>

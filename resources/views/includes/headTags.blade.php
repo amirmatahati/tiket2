@@ -5,6 +5,7 @@
 <link href="{{ URL::asset('web/css/font-awesome.css') }}" rel="stylesheet">
 <link href="{{ URL::asset('web/css/jquery-ui.css') }}" rel="stylesheet">
 <link href="{{ URL::asset('web/css/bookingstyle.css') }}" rel="stylesheet">
+<link href="{{ URL::asset('web/css/simpleLightbox.css') }}" rel="stylesheet">
 
 <link href="{{ URL::asset('assets/bower_components/gentelella/vendors/bootstrap-daterangepicker/daterangepicker.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">

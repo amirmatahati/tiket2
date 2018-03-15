@@ -16,7 +16,7 @@
 						<li class="resp-tab-item" ><label>/</label><span>Cabs</span></li>
 						
 					</ul>				  	 
-					<div class="resp-tabs-container">
+					<div id="hiden_form" class="resp-tabs-container">
 						
 						<div class="tab-1 resp-tab-content" >
 							<div class="login-top agileinfo">
@@ -463,7 +463,7 @@ $("form#flight_form").submit(function(event){
 			success: function(data)
 			{
 				//toastr.success('Successfully Added Video!', 'Success Alert', {timeOut: 5000});
-				$('.resp-tabs-container').hide();
+				$('#hiden_form').hide();
 				 $(".show_hasil").html(data);
 			},
 			error: function (jqXHR, textStatus, errorThrown)

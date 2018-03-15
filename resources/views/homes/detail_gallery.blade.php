@@ -1,3 +1,4 @@
+<div class="galleri" id="load">
 	@foreach($gallery as $b)
 				<div class="col-md-4 w3_agile_gallery_grid">
 					<div class="agile_gallery_grid">
@@ -13,4 +14,12 @@
 					</div>
 				</div>
 					@endforeach
+@if($gallery->count() === 0)
+		<div class="alert alert-danger">
+		No data founda.
+	</div>
+	@endif
+<div class="clearfix"></div>
+<div id="pagination" class="pag">{{ $gallery->appends(['keyword' => $cats])->links() }}</div>
+</div>
 @include('includes/footTags')

@@ -6,8 +6,25 @@
     height: 264px !important;
     overflow: hidden;
 }
-</style>
+#LoadDongs {
+		position: fixed;
+		top:0px;
+		width: 100%;
+		z-index: 1;
+	}
 
+	#LoadingContent {
+		height: 30px;
+		margin: auto;
+		width: 180px;
+		background: #ff005e;
+		text-align: center;
+		line-height: 29px;
+		font-weight: bold;
+		color: #fff;
+	}	
+</style>
+<div id="LoadDongs"></div>
 <div class="banner-bottom gallery">
 		<div class="container">
 			<div class="wthree_head_section">
@@ -34,7 +51,6 @@
 			
 				<div class="clearfix"></div>
 				<div class="show_detail">
-					
 				</div>
 				<div class="clearfix"></div>
 			</div>
@@ -80,6 +96,42 @@ for(host = 0; host <= hosts; host++){
 }
 </script>
 <script type="text/javascript">
+ $(function() {
+            $('.show_detail').on('click', '.pagination a', function(e) {
+                e.preventDefault();
 
-	</script>
+               $("#LoadDongs").html("<div id='LoadingContent'><i class='fa fa-spinner fa-spin'></i> Mohon tunggu ....</div>");
+			$("#LoadDongs").show();
+                var url = $(this).attr('href');
+                getArticles(url);
+                window.history.pushState("", "", url);
+            });
+
+            function getArticles(url) {
+                $.ajax({
+                    url : url
+                }).done(function (data) {
+                    $('.show_detail').html(data);
+					$('#LoadDongs').fadeOut("slow");
+                }).fail(function () {
+                    alert('Scoring could not be loaded.');
+                });
+            }
+        });
+</script>
+<script>
+var habiscuy;
+		$(document).on({
+			ajaxStart: function() { 
+				habiscuy = setTimeout(function(){
+					$("#LoadDongs").html("<div id='LoadingContent'><i class='fa fa-spinner fa-spin'></i> Mohon tunggu ....</div>");
+					$("#LoadDongs").show();
+				}, 500);
+			},
+			ajaxStop: function() { 
+				clearTimeout(habiscuy);
+				$("#LoadDongs").hide(); 
+			}
+		});
+</script>
 @endsection

@@ -4,13 +4,15 @@ namespace App\Http\Controllers\homes;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
-use App\Models\MGalleries;
-use App\Models\MCategoryGalleries;
-use MetaTag;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
 use Spatie\Sitemap\SitemapGenerator;
+
+use App\Models\MGalleries;
+use App\Models\MCategoryGalleries;
+use App\Models\Mtour;
+
+use MetaTag;
 
 class GalleriesController extends Controller
 {
@@ -33,6 +35,19 @@ class GalleriesController extends Controller
 		
 		
 		return view('sitemaps');
+	}
+	public function view($alias)
+	{
+		$catid		= MCategoryGalleries::where('category_alias', $alias)->first()->id;
+		$postview   = Mtour::where('category_post', $catid)->firstOrFail();
+		
+		
+		$random_item	= MGalleries::where('category_gallery', $catid)->get();
+		
+		$name_random	= MCategoryGalleries::where('id', $catid)->first()->category_name;
+		
+		
+		return view('homes.traveling.detail', compact('postview','random_item'));
 	}
 }
 

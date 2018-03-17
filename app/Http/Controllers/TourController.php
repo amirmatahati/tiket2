@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Mtour;
+use App\Models\MCategoryGalleries;
+
 use Indonesia;
 use App\Classes\StringClass;
 use Auth;
@@ -22,7 +24,10 @@ class TourController extends Controller
 		$data			= Mtour::paginate(10);
 		$city			= Indonesia::allProvinces();
 		$catid			= 0;
-        return view('admin.travel.index',compact('data','city','catid'));
+		$category			= MCategoryGalleries::all();
+		$category_gallery				= 0;
+		
+        return view('admin.travel.index',compact('data','city','catid','category','category_gallery'));
     }
 
     /**
@@ -64,6 +69,7 @@ class TourController extends Controller
 		$travel->travel_text			= $request->travel_text;
 		$travel->travel_image			= $b_image;
 		$travel->user_id				= Auth::user()->id;
+		$travel->category_post			= $request->category_gallery;
 
 		$travel->save();
 		

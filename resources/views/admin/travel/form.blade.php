@@ -1,10 +1,10 @@
 <div class="form-group">
 	<label for="city" class="col-md-2 control-label">Category Video</label>
 	<div class="col-md-8">
-		<select id="category" class="form-control m-bot15" name="city">
-			@if($city->count())
-				@foreach($city as $role)
-					<option value="{{ $role->id }}" {{ $catid == $role->id ? 'selected="selected"' : '' }}>{{ $role->name }}</option>    
+		<select id="category" class="form-control m-bot15" name="category_gallery">
+			@if($category->count())
+				@foreach($category as $role)
+					<option value="{{ $role->id }}" {{ $category_gallery == $role->id ? 'selected="selected"' : '' }}>{{ $role->category_name }}</option>    
 				@endforeach
 			@endif	
 		</select>

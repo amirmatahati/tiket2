@@ -21,6 +21,6 @@ abstract class Controller extends BaseController
     {
         // Defaults
         MetaTag::set('description', 'Blog Wes Anderson bicycle rights, occupy Shoreditch gentrify keffiyeh.');
-        MetaTag::set('image', asset('images/gue_jogja.jpg'));
+        MetaTag::set('image', asset('image/geu_jogja.jpg'));
     }
 }

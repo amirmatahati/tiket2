@@ -17,7 +17,7 @@ class CreatePesawatTable extends Migration
             $table->increments('id');
 			$table->string('name');
 			$table->string('seat_number');
-			$table->integer('status')->(0);
+			$table->integer('status');
             $table->timestamps();
         });
     }

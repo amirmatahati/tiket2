@@ -55,7 +55,8 @@ Route::post('booking-search', 'homes\MaskapaiController@searchFlight')->name('se
 
 Route::post('get-detail-flight','homes\MaskapaiController@DetailFlight')->name('detailflight');
 Route::get('galleries','homes\GalleriesController@index')->name('gallerieshome');
-Route::get('sitemaps','homes\GalleriesController@sitemaps')->name('sitemaps');
+
+Route::get('travelling-yuk/{alias}.html','homes\GalleriesController@view')->name('travelingyuk');
 
 Route::get('sitemap', function(){
 

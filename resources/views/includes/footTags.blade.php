@@ -6,6 +6,7 @@
 <script src="{{ asset('web/js/easing.js') }}"></script>
 <script src="{{ asset('web/js/jquery-ui.js') }}"></script>
 <script src="{{ asset('web/js/simpleLightbox.js') }}"></script>
+<script src="{{ asset('owl-carousel/dist/owl.carousel.min.js') }}"></script>
 <script>
 		$('.w3_agile_gallery_grid a').simpleLightbox();
 	</script>

@@ -38,10 +38,22 @@
 								<nav class="cl-effect-15" id="cl-effect-15">
 									<ul class="nav navbar-nav">
 										<li class="active"><a href="{{ url('/') }}">Home</a></li>
-													<li><a href="about.html">About</a></li>
-													<li><a href="{{ url('/booking')}}">Booking</a></li>
-													<li><a href="{{ url('/galleries')}}">Gallery</a></li>
-												</ul>
+										<li><a href="about.html">About</a></li>
+										<li><a href="{{ url('/booking')}}">Booking</a></li>
+										<li><a href="{{ url('/galleries')}}">Gallery</a></li>
+										<li class="dropdown">
+											<a href="#" class="dropdown-toggle" data-hover="Wisata" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Wisata <span class="caret"></span></a>
+											<ul class="dropdown-menu">
+											<?php
+												use App\Models\MCategoryGalleries;
+												$menu				= MCategoryGalleries::all();
+											?>
+											@foreach($menu as $views)
+												<li><a href="{{ route('travelingyuk', $views->category_alias)}}">{{ $views->category_name}}</a></li>
+											@endforeach
+											</ul>
+										</li>
+									</ul>
 									
 								</nav>
 							</div>

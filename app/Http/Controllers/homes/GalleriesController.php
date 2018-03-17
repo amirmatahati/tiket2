@@ -24,7 +24,6 @@ class GalleriesController extends Controller
 		if($request->ajax()){
 			$category_gallery	= $request->keyword;
 			$gallery			= MGalleries::where('category_gallery',$category_gallery )->paginate(10);
-			$image_meta			= $MGalleries::where('category_gallery', $category_gallery)->first()->image_gallery;
 			return response()->json(\View::make('homes.detail_gallery', array('gallery' => $gallery,'cats' => $category_gallery))->render());
 		}
 		return view('homes.galleries', compact('cat'));

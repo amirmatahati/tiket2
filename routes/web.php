@@ -57,7 +57,6 @@ Route::post('get-detail-flight','homes\MaskapaiController@DetailFlight')->name('
 Route::get('galleries','homes\GalleriesController@index')->name('gallerieshome');
 
 Route::get('travelling-yuk/{alias}.html','homes\GalleriesController@view')->name('travelingyuk');
-
 Route::get('sitemap', function(){
 
     /* create new sitemap object */

@@ -8,6 +8,9 @@ use App\Http\Controllers\Controller;
 use App\Models\MGalleries;
 use App\Models\MCategoryGalleries;
 use MetaTag;
+use Spatie\Sitemap\Sitemap;
+use Spatie\Sitemap\Tags\Url;
+use Spatie\Sitemap\SitemapGenerator;
 
 class GalleriesController extends Controller
 {
@@ -23,6 +26,12 @@ class GalleriesController extends Controller
 			return response()->json(\View::make('homes.detail_gallery', array('gallery' => $gallery,'cats' => $category_gallery))->render());
 		}
 		return view('homes.galleries', compact('cat'));
+	}
+	public function sitemaps()
+	{
+		SitemapGenerator::create('/galleries')->writeToFile($path);
+		
+		return view('sitemaps');
 	}
 }
 

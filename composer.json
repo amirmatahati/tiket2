@@ -13,6 +13,7 @@
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.6",
         "laravolt/indonesia": "^0.7.0",
+        "roumen/sitemap": "^2.8",
         "torann/laravel-meta-tags": "^3.0"
     },
     "require-dev": {

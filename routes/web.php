@@ -55,3 +55,76 @@ Route::post('booking-search', 'homes\MaskapaiController@searchFlight')->name('se
 
 Route::post('get-detail-flight','homes\MaskapaiController@DetailFlight')->name('detailflight');
 Route::get('galleries','homes\GalleriesController@index')->name('gallerieshome');
+Route::get('sitemaps','homes\GalleriesController@sitemaps')->name('sitemaps');
+
+Route::get('sitemap', function(){
+
+    /* create new sitemap object */
+
+    $sitemap = App::make("sitemap");
+
+    
+
+    /* add item to the sitemap (url, date, priority, freq) */
+
+    $sitemap->add(URL::to('/'), '2012-08-25T20:10:00+02:00', '1.0', 'daily');
+
+    
+ 
+
+    $posts = DB::table('gallery_travell')->orderBy('created_at','desc')
+                    ->groupBy('id')
+                    ->get();
+
+    
+
+    $postResult = array();
+
+    if(!empty($posts)){
+
+        foreach ($posts as $key => $value) {
+
+            $postResult[$value->id]['id'] = $value->id;
+
+            $postResult[$value->id]['gallery_name'] = $value->gallery_name;
+            $postResult[$value->id]['category_gallery'] = $value->category_gallery;
+            $postResult[$value->id]['updated_at'] = $value->updated_at;
+            $postResult[$value->id]['image_gallery'][] = $value->image_gallery;
+
+        }
+
+    }
+
+    
+
+     /* add every post to the sitemap */
+
+     foreach ($postResult as $key=>$value)
+
+     {
+
+        $images = array();
+
+        foreach ($value['image_gallery'] as $key2 => $value2) {
+
+            $images[] = array(
+
+                'url' => URL::to('/')."/image/".$value2,
+
+                'title' => $value['gallery_name']
+
+            );    
+
+        }
+
+        $sitemap->add(url('galleries?keyword='.$value['category_gallery'].''), $value['updated_at'], '1.0', 'daily', $images);
+
+    }
+
+    
+
+    /* show your sitemap (options: 'xml' (default), 'html', 'txt', 'ror-rss', 'ror-rdf') */
+
+    return $sitemap->render('xml');
+
+});

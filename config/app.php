@@ -163,6 +163,7 @@ return [
 		AzisHapidin\IndoRegion\IndoRegionServiceProvider::class,
 		Laravolt\Indonesia\ServiceProvider::class,
 	    Torann\LaravelMetaTags\MetaTagsServiceProvider::class,
+		Roumen\Sitemap\SitemapServiceProvider::class,
 
     ],
 

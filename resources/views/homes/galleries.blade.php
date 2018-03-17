@@ -42,12 +42,6 @@
 				
 
 				<div class="clearfix"></div>
-				<div class="progress">
-				  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60"
-				  aria-valuemin="0" aria-valuemax="100" style="width:60%">
-					60% Complete (warning)
-				  </div>
-				</div>
 			
 				<div class="clearfix"></div>
 				<div class="show_detail">
@@ -77,10 +71,8 @@ for(host = 0; host <= hosts; host++){
                 type:'GET',
                 data:'keyword='+id+'ip='+ipToCheck,
                 beforeSend:function () {
-					$('.progress').show();
-					$('.progress-bar').show();
-					hostsDone++;
-        updateProgress((hostsDone/hosts)*50);
+					$("#LoadDongs").html("<div id='LoadingContent'><i class='fa fa-spinner fa-spin'></i> Mohon tunggu ....</div>");
+					$("#LoadDongs").show();
                 },
                 success:function (data) {
 					hostsDone++;
@@ -88,8 +80,7 @@ for(host = 0; host <= hosts; host++){
                    $(".show_detail").fadeIn("slow");
                    $(".show_detail").html(data);
 				   $(".show_detail").replaceAll($(".show_detail"));
-                   $('.progress').fadeOut("slow");
-                   $('.progress-bar').fadeOut("slow");
+                   $('#LoadDongs').fadeOut("slow");
                 }
             });
 }
@@ -100,7 +91,7 @@ for(host = 0; host <= hosts; host++){
             $('.show_detail').on('click', '.pagination a', function(e) {
                 e.preventDefault();
 
-               $("#LoadDongs").html("<div id='LoadingContent'><i class='fa fa-spinner fa-spin'></i> Mohon tunggu ....</div>");
+            $("#LoadDongs").html("<div id='LoadingContent'><i class='fa fa-spinner fa-spin'></i> Mohon tunggu ....</div>");
 			$("#LoadDongs").show();
                 var url = $(this).attr('href');
                 getArticles(url);

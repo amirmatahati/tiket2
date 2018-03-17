@@ -68,6 +68,7 @@ Route::get('sitemap', function(){
     /* add item to the sitemap (url, date, priority, freq) */
 
     $sitemap->add(URL::to('/'), '2012-08-25T20:10:00+02:00', '1.0', 'daily');
+    $sitemap->add(URL::to('/booking'), '2012-08-25T20:10:00+02:00', '1.0', 'daily');
 
     
  

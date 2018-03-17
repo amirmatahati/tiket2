@@ -29,7 +29,7 @@ class GalleriesController extends Controller
 	}
 	public function sitemaps()
 	{
-		SitemapGenerator::create('/galleries')->writeToFile($path);
+		
 		
 		return view('sitemaps');
 	}

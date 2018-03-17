@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('content')
 <style>
+body{
+	text-align: justify;
+}
 .agile_gallery_grid1 {
     position: relative;
     height: 264px !important;
@@ -88,6 +91,7 @@ h4.title .right {
 	<div class="container">
 		<div class="col-md-12">
 		<h1>{{ $postview->travel_title}}</h1>
+		<br />
 		<img src="{{ asset($postview->travel_image)}}" class="img-responsive center-block">
 		<br />
 		<p style="text-align:justify !important;">

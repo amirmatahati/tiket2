@@ -112,8 +112,7 @@ Route::get('sitemap', function(){
 
             $images[] = array(
 
-                'url' => URL::to('/')."/image/".$value2,
-
+                'url' => URL::to('/').$value2,
                 'title' => $value['gallery_name']
 
             );    
@@ -121,6 +120,58 @@ Route::get('sitemap', function(){
         }
 
         $sitemap->add(url('galleries?keyword='.$value['category_gallery'].''), $value['updated_at'], '1.0', 'daily', $images);
+
+    }
+
+    
+    $travel = DB::table('tour_post')
+					->join('category_galleries','tour_post.category_post','category_galleries.id')
+					->orderBy('tour_post.created_at','desc')
+                    ->groupBy('tour_post.id')
+                    ->get();
+
+    
+
+    $travelResult = array();
+
+    if(!empty($travel)){
+
+        foreach ($travel as $key => $value) {
+
+            $travelResult[$value->id]['id'] = $value->id;
+
+            $travelResult[$value->id]['travel_title'] = $value->travel_title;
+            $travelResult[$value->id]['category_alias'] = $value->category_alias;
+            $travelResult[$value->id]['updated_at'] = $value->updated_at;
+            $travelResult[$value->id]['travel_image'][] = $value->travel_image;
+
+        }
+
+    }
+
+    
+
+     /* add every post to the sitemap */
+
+     foreach ($travelResult as $key=>$value)
+
+     {
+
+        $images = array();
+
+        foreach ($value['travel_image'] as $key2 => $value2) {
+
+            $images[] = array(
+
+                'url' => URL::to('/').$value2,
+
+                'title' => $value['travel_title']
+
+            );    
+
+        }
+
+        $sitemap->add(url('travelling-yuk/'.$value['category_alias'].'.html'), $value['updated_at'], '1.0', 'daily', $images);
 
     }
 

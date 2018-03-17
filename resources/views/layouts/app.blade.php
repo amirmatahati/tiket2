@@ -9,6 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
      <title>{{ MetaTag::get('title') }}</title>
+	{!! MetaTag::tag('keywords') !!}
 	{!! MetaTag::tag('description') !!}
 	{!! MetaTag::tag('image') !!}
         
@@ -17,7 +18,7 @@
         {!! MetaTag::twitterCard() !!}
 
         {{--Set default share picture after custom section pictures--}}
-        {!! MetaTag::tag('image', asset('images/default-logo.png')) !!}
+        {!! MetaTag::tag('image', asset('images/gue_jogja.jpg')) !!}
 
     <!-- Styles -->
 	@include('includes/headTags')

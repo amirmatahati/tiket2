@@ -17,7 +17,8 @@ class GalleriesController extends Controller
     public function index(Request $request)
 	{
 		MetaTag::set('title', 'Galleries - AmirMataHati');
-        MetaTag::set('description', 'This is my home. Enjoy!');
+		MetaTag::set('keywords', 'citumang,pantai anyer, pantai sawarna,pantai bayah,body rafting,curug ciherang,cidahu');
+        MetaTag::set('description', 'Alam tak hanya menyajikan keindahan saja guys, tapi juga mengajarkan kita tentang arti kebersamaan.!');
 		
 		$cat				= MCategoryGalleries::all();
 		if($request->ajax()){

@@ -41,7 +41,7 @@ return array(
      */
 
     'open_graph' => [
-        'site_name' => 'My Site',
+        'site_name' => 'AmirMataHati',
         'type' => 'website'
     ],
 
@@ -55,7 +55,7 @@ return array(
     'twitter' => [
         'card' => 'summary',
         'creator' => '@amirmatahati',
-        'site' => '@mysite'
+        'site' => '@amirmatahati'
     ],
 
     /*

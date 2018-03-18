@@ -61,29 +61,22 @@ function updateProgress(percentage){
     $('.progress-bar').html(percentage+'%');
 }
 function enableTxt(elem) {
-	var hosts = 10;
-	var hostsDone = 0;
     var id = $(elem).attr("id");
-for(host = 0; host <= hosts; host++){
-	ipToCheck = host;
     $.ajax({
                 url:"{{ url('/galleries') }}",
                 type:'GET',
-                data:'keyword='+id+'ip='+ipToCheck,
+                data:'keyword='+id,
                 beforeSend:function () {
 					$("#LoadDongs").html("<div id='LoadingContent'><i class='fa fa-spinner fa-spin'></i> Mohon tunggu ....</div>");
 					$("#LoadDongs").show();
                 },
                 success:function (data) {
-					hostsDone++;
-        updateProgress((hostsDone/hosts)*100);
                    $(".show_detail").fadeIn("slow");
                    $(".show_detail").html(data);
 				   $(".show_detail").replaceAll($(".show_detail"));
                    $('#LoadDongs').fadeOut("slow");
                 }
             });
-}
 }
 </script>
 <script type="text/javascript">

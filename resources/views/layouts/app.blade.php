@@ -19,7 +19,7 @@
 
         {{--Set default share picture after custom section pictures--}}
         {!! MetaTag::tag('image', asset('images/gue_jogja.jpg')) !!}
-
+	<link rel="shortcut icon" href="{{ asset('image/amh.ico')}}" type="image/x-icon">
     <!-- Styles -->
 	@include('includes/headTags')
 		@stack('stylesheets')

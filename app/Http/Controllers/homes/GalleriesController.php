@@ -41,11 +41,15 @@ class GalleriesController extends Controller
 		$catid		= MCategoryGalleries::where('category_alias', $alias)->first()->id;
 		$postview   = Mtour::where('category_post', $catid)->firstOrFail();
 		
-		
+		$images		= $postview->travel_image;
 		$random_item	= MGalleries::where('category_gallery', $catid)->get();
 		
 		$name_random	= MCategoryGalleries::where('id', $catid)->first()->category_name;
 		
+		MetaTag::set('title', 'Galleries - AmirMataHati');
+		MetaTag::set('keywords', 'citumang,pantai anyer, pantai sawarna,pantai bayah,body rafting,curug ciherang,cidahu');
+        MetaTag::set('description', 'Alam tak hanya menyajikan keindahan saja guys, tapi juga mengajarkan kita tentang arti kebersamaan.!');
+		MetaTag::set('image', asset($images));
 		
 		return view('homes.traveling.detail', compact('postview','random_item'));
 	}

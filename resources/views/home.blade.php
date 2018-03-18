@@ -188,7 +188,22 @@
 		</div>
 	</div>	
 -->
-	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+			<br />
+				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<!-- arts -->
+				<ins class="adsbygoogle"
+					 style="display:inline-block;width:100%;height:90px"
+					 data-ad-client="ca-pub-5747563932114209"
+					 data-ad-slot="1846294059"></ins>
+				<script>
+				(adsbygoogle = window.adsbygoogle || []).push({});
+				</script>
+			</div>
+		</div>
+	</div>
 </div>
 @include('includes/footer')
 <script src="{{ asset('assets/bower_components/gentelella/vendors/jquery/dist/jquery.min.js') }}"></script>
